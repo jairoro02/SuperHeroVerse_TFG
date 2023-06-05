@@ -11,7 +11,7 @@ const routes = [
     { path: '/heroes', name: 'heroes', component: Heroes},
     { path: '/villains', name: 'villains', component: Villains},
     { path: '/profile', name: 'profile', component: Profile},
-    { path: '/profile', name: 'register', component: Register},
+    { path: '/register', name: 'register', component: Register},
     { path: '/:pathMatch(.*)*', component: NoPageFound },
 ]
 
