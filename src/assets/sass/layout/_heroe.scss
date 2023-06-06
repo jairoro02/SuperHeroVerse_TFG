@@ -1,0 +1,184 @@
+.fondo-heroe{
+    background-image: url("https://cdn.marvel.com/content/1x/002irm_com_mas_dsk_02.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    margin-bottom: 3%;
+    filter: contrast(70%);
+    transition: all 600ms;
+}
+.fondo-villano{
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/69f90eed-5acf-4c96-b8eb-47e2795ff495/da4221s-5a92ee59-23c7-4fb3-88cc-bc3bfa8a8a78.jpg/v1/fill/w_1024,h_342,q_75,strp/joker_banner_by_remixsdesigns_da4221s-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MzQyIiwicGF0aCI6IlwvZlwvNjlmOTBlZWQtNWFjZi00Yzk2LWI4ZWItNDdlMjc5NWZmNDk1XC9kYTQyMjFzLTVhOTJlZTU5LTIzYzctNGZiMy04OGNjLWJjM2JmYThhOGE3OC5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.KWciDQBMpytXUhonaYISos765WfoUXIOiDOkBKuYiHo");
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    margin-bottom: 3%;
+    filter: contrast(70%);
+    transition: all 600ms;
+}
+.one-character{
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    justify-content: space-between;
+    font-family: $fuenteprincipal;
+    transition: all 600ms;
+    img{
+        height: 900px;
+        transition: all 600ms;
+    }
+    .description{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 35%;
+        height: 30%;
+        margin-top: 10%;
+        transition: all 600ms;
+        p{
+          background-color: white;  
+          padding: 4%;
+          border: solid 0.5px black;
+          transition: all 600ms;
+        }
+        
+        
+        
+        h1{
+            padding-bottom: 2%;
+            font-family: $fuentenombre;
+            font-size: 35px;
+            transition: all 600ms;
+        }
+
+        img{
+            padding-top: 5%;
+            height: 80px;
+            filter: contrast(80%);
+        }
+    }
+}
+
+@media(max-width:1750px){
+    .one-character{
+        width: 70%;
+        transition: all 600ms;
+        img{
+        }
+        .description{
+            p{
+
+            }
+            
+            
+            
+            h1{
+
+            }
+    
+            img{
+
+            }
+        }
+    }
+}
+@media(max-width:1072px){
+    .one-character{
+        width: 70%;
+        transition: all 600ms;
+        img{
+            height: 600px;
+            transition: all 600ms;
+        }
+        .description{
+            width: 40%;
+            transition: all 600ms;
+            p{
+
+            }
+            
+            
+            
+            h1{
+
+            }
+    
+            img{
+
+            }
+        }
+    }
+}
+
+@media(max-width:815px){
+    .one-character{
+        flex-direction: column;
+        align-items: center;
+        transition: all 600ms;
+        img{
+            height: 400px;
+            transition: all 600ms;
+        }
+        .description{
+            width: 70%;
+            margin-top: 0;
+            transition: all 600ms;
+            p{
+                font-size: 16px;
+                transition: all 600ms;
+            }
+            
+            
+            
+            h1{
+                font-size: 30px;
+                transition: all 600ms;
+
+            }
+    
+            img{
+
+            }
+        }
+    }
+}
+
+@media(max-width:460px){
+    .one-character{
+        width: 100%;
+        transition: all 600ms;
+        img{
+            height: 250px;
+            transition: all 600ms;
+        }
+        .description{
+            width: 80%;
+            transition: all 600ms;
+            p{
+                font-size: 13px;
+                transition: all 600ms;
+            }
+            
+            
+            
+            h1{
+                font-size: 25px;
+                transition: all 600ms;
+            }
+    
+            img{
+
+            }
+        }
+    }
+    .fondo-heroe{
+       height: 150px;
+       transition: all 600ms;
+    }
+    .fondo-villano{
+        height: 150px;
+        transition: all 600ms;
+    }
+}

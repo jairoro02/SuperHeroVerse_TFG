@@ -1,0 +1,57 @@
+.profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4%;
+    background-image: url("/src/assests/images/comic-fondo.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    .datos{
+        display: flex;
+        flex-direction: column;
+        font-family: $fuentenombre;
+        margin-bottom: 1%;
+        background-color: $colorprincipal;
+        color: white;
+        padding: 2%;
+      align-items: center;
+      border-radius: 25px 0 25px 0;
+      transition: all 600ms;
+      img{
+        width: 150px;
+        align-self: center;
+        padding-bottom: 5%;
+        transition: all 600ms;
+      }
+    }
+    .favorito{
+        width: 80%;
+        h1{
+            font-family: $fuentenombre;
+            padding-left: 10%;
+            transition: all 600ms;
+        }
+    }
+}
+
+@media(max-width:635px){
+  .profile{
+    .datos{
+      font-size: 10px;
+      transition: all 600ms;
+      img{
+        width: 75px;
+        transition: all 600ms;
+      }
+    }
+    .favorito{
+      h1{
+        font-size: 20px;
+        padding-bottom: 3%;
+        transition: all 600ms;
+      }
+
+    }
+  }
+}

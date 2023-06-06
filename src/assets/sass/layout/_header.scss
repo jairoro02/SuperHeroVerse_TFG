@@ -1,0 +1,128 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    background-color: $colorprincipal;
+    align-items: center;
+    justify-content: space-between;
+    font-family: $fuentenombre;
+    transition: all 600ms;
+    .logo{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 5%;
+        font-size: 25px;
+        transition: all 600ms;
+        img{
+            height: 80px;
+            padding-right: 5%;
+            transition: all 600ms;
+        }
+    }
+    .options{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: white;
+        justify-content: space-around;
+        width: 30%;
+        margin: 0 auto;
+        font-size: 25px;
+        transition: all 600ms;
+        .option{
+            cursor: pointer;
+            transition: all 600ms;
+        }
+        .option:hover{
+            background-color: #9D1515;
+            padding: 1.5%;
+            border-radius: 10px;
+            box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.15);
+            transition: all 0.5s;
+        }
+    }
+    .user{
+        align-self: center;
+        color: white;
+        padding-right: 2%;
+        font-size: 40px;
+        cursor: pointer;
+        transition: all 600ms;
+    }
+}
+
+@media (max-width: 1000px) {
+    
+    .header{
+        .options {
+            margin: 0;
+            transition: all 600ms;
+            .option{
+                font-size: 18px;
+                transition: all 600ms;
+            }
+        }
+       .logo{
+            font-size: 18px;
+            width: 20%;
+            transition: all 600ms;
+        }
+        .user{
+            font-size: 30px;
+            transition: all 600ms;
+        }
+    }
+    
+}
+
+@media (max-width: 735px) {
+    
+    .header{
+        flex-wrap: wrap;
+        transition: all 600ms;
+        .options {
+            width: 215px;
+            transition: all 600ms;
+            .option{
+                
+            }
+        }
+       .logo{
+            width: 242px;
+            transition: all 600ms;
+            img{
+                padding-right: 0;
+                transition: all 600ms;
+            }
+        }
+        .user{
+            width: 32px;
+            padding-right: 1%;
+            transition: all 600ms;
+        }
+    }
+    
+}
+
+@media (max-width: 455px) {
+    
+    .header{
+        .options {
+            .option{
+            }
+        }
+       .logo{
+            margin: 0 auto;
+            transition: all 600ms;
+            img{
+                height: 60px;
+                transition: all 600ms;
+            }
+        }
+        .user{
+            margin-right: 2%;
+            transition: all 600ms;
+        }
+    }
+    
+}

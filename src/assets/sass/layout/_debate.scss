@@ -1,0 +1,90 @@
+
+.fondito.index{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1{
+        padding-top: 2.5%;
+        padding-bottom: 1.5%;
+        font-family: $fuenteprincipal;
+        font-size: 60px;
+        
+    }
+   .video{
+    display: flex;
+    justify-content: center;
+    
+    video{
+        transition: all 600ms;
+    }
+
+    } 
+    .info{
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-top: 4%;
+        flex-wrap: wrap;
+        font-family: $fuenteprincipal;
+        transition: all 600ms;
+        .data{
+            background-color: white;  
+            padding: 2%;
+            border: solid 0.5px black;
+            width: 30%;
+            font-size: 17px;
+            transition: all 600ms;
+
+        }
+    }
+}
+
+@media(max-width:1275px){
+    .video video {
+        width: 80%; 
+        height: auto; 
+        transition: all 600ms;
+    }
+    .fondito.index{
+        .info{
+            .data{
+                font-size: 15px;
+                transition: all 600ms;
+            }
+        }
+    }
+}
+@media(max-width:900px){
+    .fondito.index{
+        h1{
+            font-size: 25px;
+            transition: all 600ms;
+        }
+        .info{
+            flex-direction: column;
+            align-items: center;
+            transition: all 600ms;
+            .data{
+                width: 90%;
+                font-size: 15px;
+                margin-bottom: 4%;
+                transition: all 600ms;
+            }
+        }
+    }
+}
+@media(max-width:735px){
+    .fondito.index{
+        h1{
+            font-size: 30px;
+            transition: all 600ms;
+        }
+        .info{
+            .data{
+                font-size: 14px;
+                transition: all 600ms;
+            }
+        }
+    }
+}

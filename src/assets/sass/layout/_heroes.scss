@@ -1,0 +1,310 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+  }
+  
+  .search-wrapper {
+    display: flex;
+  }
+  
+  .search-input {
+    width: 400px;
+    height: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    font-size: 14px;
+    padding: 8px;
+    transition: all 600ms;
+  }
+  
+  .search-button {
+    background-color: #f2f2f2;
+    color: #666;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .search-button:hover {
+    background-color: darken(#f2f2f2, 10%);
+  }
+
+.filters{
+    margin: 0 auto;
+    padding-top: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    font-family: $fuenteprincipal;
+    transition: all 600ms;
+    .all-filters{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 800px;
+        justify-content: space-around;
+        transition: all 600ms;
+        .all-options{
+            width: 35%;
+            text-align: center;
+
+            .filter-text{
+              padding-bottom: 5%;
+              font-size: 35px;
+            }
+            .filter-options{
+                display: flex;
+                flex-direction: row;
+                
+                .filter-option{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 50%;
+                    cursor: pointer;
+                    .marvel{
+                      width: 140px;
+                    }
+                    
+                    img{
+                      height: 70px;
+                      padding-bottom:5%;
+                      filter: grayscale(100%);
+                      transition: filter 0.3s ease-in-out;
+                      &:hover {
+                        filter: none;
+                      }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.fondo{
+  background-image: url("/src/assests/images/comic-fondo.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding-bottom: 50px;
+}
+
+.fondito{
+  background-image: url("/src/assests/images/fondo-villano.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding-bottom: 50px;
+}
+.all-characters{
+  display: flex;
+  justify-content: center;
+  padding-top: 1%;
+  
+  .characters{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-family: $fuenteprincipal;
+    justify-content: space-between;
+    .character{
+      display: flex;
+      flex-direction: column;
+      background-image: url("/src/assests/images/marvel-fondo.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      width: 325px;
+      height: 650px;
+      align-items: center;
+      margin-bottom: 6%;
+      margin-right: 2%;
+      border-radius: 25px 0 25px 0;
+      img{
+        height: 550px;
+        padding-bottom: 1%;
+        transition: all 600ms;
+        
+      }
+      h1{
+        color: white;
+        padding-top: 3%;
+        padding-bottom: 5%;
+      }
+      &:hover{
+        cursor: pointer;
+        img{
+          transform: scale(1.1);
+          transition: all 600ms;
+        }
+      }
+    }
+    .character.dc{
+      background-image: url("/src/assests/images/dc-fondo.jpg");
+    }
+  }
+}
+
+
+@media(max-width:1350px){
+  .filters{
+    flex-direction: column-reverse;
+    transition: all 600ms;
+    .all-filters{
+      padding-bottom: 2%;
+      transition: all 600ms;
+        .all-options{
+
+            .filter-text{
+            }
+            .filter-options{
+                
+                .filter-option{
+                    .marvel{
+
+                    }
+                    
+                    img{
+
+                    }
+                }
+            }
+
+        }
+    }
+}
+}
+
+@media(max-width:682px){
+  .filters{
+    .all-filters{
+      width: 500px;
+      transition: all 600ms;
+        .all-options{
+          width: 45%;
+          transition: all 600ms;
+            .filter-text{
+              font-size: 28px;
+              transition: all 600ms;
+            }
+            .filter-options{
+                .filter-option{
+                  font-size: 12px;
+                    .marvel{
+
+                    }
+                    
+                    img{
+                      transform: scale(0.8);
+                      transition: all 600ms;
+
+                    }
+                }
+            }
+
+        }
+    }
+}
+.all-characters{
+
+  
+  .characters{
+    width: 90%;
+    transition: all 600ms;
+    .character{
+      width: 162.5px;
+      height: 325px;
+      transition: all 600ms;
+      img{
+        height: 275px;
+        transition: all 600ms;
+      }
+      h1{
+
+      }
+      &:hover{
+
+        img{
+
+        }
+      }
+    }
+    .character.dc{
+      
+    }
+  }
+}
+}
+
+@media(max-width:475px){
+  .filters{
+    .all-filters{
+      width: 325px;
+      transition: all 600ms;
+        .all-options{
+            .filter-text{
+              font-size: 25px;
+              padding: 0;
+              transition: all 600ms;
+            }
+            .filter-options{
+                .filter-option{
+                  font-size: 10px;
+                  transition: all 600ms;
+                    .marvel{
+
+                    }
+                    
+                    img{
+                      transform: scale(0.6);
+                      transition: all 600ms;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.search-input {
+  width: 235px;
+  transition: all 600ms;
+}
+
+
+}
+
+@media(max-width:391px){
+  .all-characters{
+
+  
+    .characters{
+      .character{
+        margin-left: 25%;
+        img{
+        }
+        h1{
+  
+        }
+        &:hover{
+  
+          img{
+  
+          }
+        }
+      }
+      .character.dc{
+        
+      }
+    }
+  }
+}
