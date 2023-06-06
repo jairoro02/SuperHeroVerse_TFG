@@ -1,6 +1,6 @@
 <template>
     <main class="main-register">
-        <h1>Register</h1>
+        <h1>Login</h1>
         <form class="form-register">
             <div class="form-option">
                 <label for="username">Your username</label>
@@ -14,12 +14,7 @@
                 <label for="password">Your password</label>
                 <input type="password" name="password">
             </div>
-            <div class="form-option">
-                <label for="rpassword">Repeat password</label>
-                <input type="password" name="rpassword">
-            </div>
-
-            <p>I have an <router-link :to="{ name: 'login' }" class="link-login">account</router-link></p>
+            <p>I don´t have an <router-link :to="{ name: 'register' }" class="link-login">account</router-link></p>
 
             <a href="./profile.html" class="button">Submit</a>
         </form>

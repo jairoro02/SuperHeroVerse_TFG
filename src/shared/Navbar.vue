@@ -7,7 +7,7 @@
       <router-link :to="{ name: 'villains' }" class="option">Villains</router-link>
     </div>
     <router-link v-if="user.loggedIn" :to="{ name: 'profile' }" class="user"><i class="fa-solid fa-user"></i></router-link>
-    <router-link v-else to="/register" class="user">Register</router-link>
+    <router-link v-else to="/register" class="user register">Register</router-link>
   </header>
 </template>
 
