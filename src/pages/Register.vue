@@ -1,92 +1,101 @@
 <template>
-    <main class="main-register">
-      <h1>Register</h1>
-      <form class="form-register">
-        <div class="form-option">
-          <label for="username">Your username</label>
-          <input type="text" name="username" v-model="username" @input="validateUsername" @keydown.space.prevent>
-          <p v-if="usernameError" class="error-message">{{ usernameError }}</p>
-        </div>
-        <div class="form-option">
-          <label for="email">Your email address</label>
-          <input type="email" name="email" v-model="email" @input="validateEmail" @keydown.space.prevent>
-          <p v-if="emailError" class="error-message">{{ emailError }}</p>
-        </div>
-        <div class="form-option">
-          <label for="password">Your password</label>
-          <input type="password" name="password" v-model="password" @input="validatePassword" @keydown.space.prevent>
-          <p v-if="passwordError" class="error-message">{{ passwordError }}</p>
-        </div>
-        <div class="form-option">
-          <label for="rpassword">Repeat password</label>
-          <input type="password" name="rpassword" v-model="rpassword" @input="validateRepeatPassword" @keydown.space.prevent>
-          <p v-if="rpasswordError" class="error-message">{{ rpasswordError }}</p>
-        </div>
-  
-        <p>I have an <router-link :to="{ name: 'login' }" class="link-login">account</router-link></p>
-  
-        <button type="submit" class="button">Submit</button>
-        <p v-if="error" class="error-message">{{ error }}</p>
-      </form>
-    </main>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
+  <main class="main-register">
+    <h1>Register</h1>
+    <form class="form-register" @submit.prevent="submitMethod">
+      <div class="form-option">
+        <label for="username">Your username</label>
+        <input type="text" name="username" v-model="formData.username" @input="validateUsername" @keydown.space.prevent>
+        <p v-if="formErrors.username" class="error-message">{{ formErrors.username }}</p>
+      </div>
+      <div class="form-option">
+        <label for="email">Your email address</label>
+        <input type="email" name="email" v-model="formData.email" @input="validateEmail" @keydown.space.prevent>
+        <p v-if="formErrors.email" class="error-message">{{ formErrors.email }}</p>
+      </div>
+      <div class="form-option">
+        <label for="password">Your password</label>
+        <input type="password" name="password" v-model="formData.password" @input="validatePassword" @keydown.space.prevent>
+        <p v-if="formErrors.password" class="error-message">{{ formErrors.password }}</p>
+      </div>
+      <div class="form-option">
+        <label for="rpassword">Repeat password</label>
+        <input type="password" name="rpassword" v-model="rpassword" @input="validateRepeatPassword" @keydown.space.prevent>
+        <p v-if="formErrors.rpassword" class="error-message">{{ formErrors.rpassword }}</p>
+      </div>
+
+      <p>I have an <router-link :to="{ name: 'login' }" class="link-login">account</router-link></p>
+
+      <button type="submit" class="button">Submit</button>
+      <p v-if="formErrors.error" class="error-message">{{ formErrors.error }}</p>
+    </form>
+  </main>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      rpassword: "",
+      formData: {
+        username: "",
+        email: "",
+        password: "",
+      },
+      formErrors: {
         username: "",
         email: "",
         password: "",
         rpassword: "",
-        usernameError: "",
-        emailError: "",
-        passwordError: "",
-        rpasswordError: "",
         error: "",
-      };
+      },
+    };
+  },
+  methods: {
+    validateUsername() {
+      if (this.formData.username.trim() === "") {
+        this.formErrors.username = "Username is required.";
+      } else {
+        this.formErrors.username = "";
+      }
     },
-    methods: {
-      validateUsername() {
-        if (this.username.trim() === "") {
-          this.usernameError = "Username is required.";
-        } else {
-          this.usernameError = "";
-        }
-      },
-      validateEmail() {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
-        if (this.email.trim() === "") {
-          this.emailError = "Email address is required.";
-        } else if (!emailRegex.test(this.email)) {
-          this.emailError = "Invalid email address.";
-        } else {
-          this.emailError = "";
-        }
-      },
-      validatePassword() {
-        if (this.password.trim() === "") {
-          this.passwordError = "Password is required.";
-        } else {
-          this.passwordError = "";
-        }
-      },
-      validateRepeatPassword() {
-        if (this.rpassword.trim() === "") {
-          this.rpasswordError = "Repeat password is required.";
-        } else if (this.rpassword !== this.password) {
-          this.rpasswordError = "Passwords do not match.";
-        } else {
-          this.rpasswordError = "";
-        }
-      },
+    validateEmail() {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (this.formData.email.trim() === "") {
+        this.formErrors.email = "Email address is required.";
+      } else if (!emailRegex.test(this.formData.email)) {
+        this.formErrors.email = "Invalid email address.";
+      } else {
+        this.formErrors.email = "";
+      }
     },
-  };
-  </script>
-  
-  <style lang="scss" scoped>
-  .error-message {
-    color: red;
-  }
-  </style>
+    validatePassword() {
+      if (this.formData.password.trim() === "") {
+        this.formErrors.password = "Password is required.";
+      } else {
+        this.formErrors.password = "";
+      }
+    },
+    validateRepeatPassword() {
+      if (this.rpassword.trim() === "") {
+        this.formErrors.rpassword = "Repeat password is required.";
+      } else if (this.rpassword !== this.formData.password) {
+        this.formErrors.rpassword = "Passwords do not match.";
+      } else {
+        this.formErrors.rpassword = "";
+      }
+    },
+    submitMethod(){
+      if(!this.formErrors.username && !this.formErrors.email && !this.formErrors.password && !this.formErrors.error && !this.formErrors.rpassword){
+        console.log(this.formData)
+      }
+    }
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.error-message {
+  color: red;
+}
+</style>
