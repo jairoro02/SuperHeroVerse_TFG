@@ -35,11 +35,40 @@
             </div>
         </div>
     </section>
+    <section class="all-characters">
+        <div class="characters">
+            <Character :heroes="heroes" />
+        </div>
+    </section>
 </template>
 
 <script>
+    import axios from 'axios'
+    import Character from '../components/Character.vue'
+
     export default {
-        
+        components: {
+            Character
+        },
+        data (){
+            return{
+                heroes: []
+            }
+        },
+        mounted() {
+            this.fetchHeroes();
+        },
+        methods: {
+            fetchHeroes() {
+                axios.get('https://superheroverse.up.railway.app/heroes/')
+                    .then(response => {
+                        this.heroes = response.data;
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            }
+        }
     }
 </script>
 
