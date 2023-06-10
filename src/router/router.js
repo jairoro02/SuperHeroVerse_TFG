@@ -6,6 +6,8 @@ import NoPageFound from '../shared/NoPageFound.vue';
 import Register from '../pages/Register.vue';
 import Contactus from '../pages/Contactus.vue';
 import Login from '../pages/Login.vue';
+import OneHero from '../pages/OneHero.vue';
+import OneVillain from '../pages/OneVillain.vue';
 import { createRouter, createWebHistory} from 'vue-router'
 
 const routes = [
@@ -16,6 +18,8 @@ const routes = [
     { path: '/register', name: 'register', component: Register},
     { path: '/contact-us', name: 'contactUs', component: Contactus},
     { path: '/login', name: 'login', component: Login},
+    { path: '/heroes/:id', name: 'heroeDetails', component: OneHero},
+    { path: '/villains/:id', name: 'villainDetails', component: OneVillain},
     { path: '/:pathMatch(.*)*', component: NoPageFound },
 ]
 

@@ -38,7 +38,7 @@
         </section>
         <section class="all-characters">
             <div class="characters">
-                <Character :characters="filterHeroes()" />
+                <CharacterVillain :characters="filterHeroes()" />
             </div>
         </section>
     </main>
@@ -46,11 +46,11 @@
 
 <script>
   import axios from 'axios';
-  import Character from '../components/Character.vue';
+  import CharacterVillain from '../components/CharacterVillain.vue';
   
   export default {
     components: {
-      Character
+      CharacterVillain
     },
     data() {
       return {

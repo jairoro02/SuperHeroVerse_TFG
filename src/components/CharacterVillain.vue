@@ -1,5 +1,5 @@
 <template>
-    <router-link class="character" v-for="hero in characters" :key="hero.id" :to="'/heroes/' + hero.id">
+    <router-link class="character" v-for="hero in characters" :key="hero.id" :to="'/villains/' + hero.id">
         <img :src="hero.image" :alt="hero.name">
         <h1>{{ hero.name }}</h1>
     </router-link>
