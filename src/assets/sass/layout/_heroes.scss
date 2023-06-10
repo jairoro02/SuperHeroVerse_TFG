@@ -81,6 +81,9 @@
                         filter: none;
                       }
                     }
+                    img.activo{
+                      filter: none;
+                    }
                 }
             }
 
@@ -89,7 +92,7 @@
 }
 
 .fondo{
-  background-image: url("/src/assests/images/comic-fondo.jpg");
+  background-image: url("/src/assets/imagesandvideos/comic-fondo.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -97,7 +100,7 @@
 }
 
 .fondito{
-  background-image: url("/src/assests/images/fondo-villano.jpg");
+  background-image: url("/src/assets/imagesandvideos/fondo-villano.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -119,7 +122,7 @@
     .character{
       display: flex;
       flex-direction: column;
-      background-image: url("/src/assests/images/marvel-fondo.jpg");
+      background-image: url("/src/assets/imagesandvideos/marvel-fondo.jpg");
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
