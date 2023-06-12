@@ -38,7 +38,8 @@
         </section>
         <section class="all-characters">
             <div class="characters">
-                <CharacterVillain :characters="filterHeroes()" />
+              <Loader v-if="heroes.length === 0" />
+                <CharacterVillain v-else :characters="filterHeroes()" />
             </div>
         </section>
     </main>
@@ -47,10 +48,12 @@
 <script>
   import axios from 'axios';
   import CharacterVillain from '../components/CharacterVillain.vue';
+  import Loader from '../components/Loader.vue';
   
   export default {
     components: {
-      CharacterVillain
+      CharacterVillain,
+      Loader
     },
     data() {
       return {

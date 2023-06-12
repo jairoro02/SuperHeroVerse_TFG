@@ -1,19 +1,23 @@
 <template>
-    <CharacterDetails :character="heroe" />
+
+  <Loader v-if="!heroe" />
+  <CharacterDetails v-else :character="heroe" />
 </template>
 
 <script>
-    import axios from 'axios';
+  import axios from 'axios';
   import CharacterDetails from '../components/CharacterDetails.vue';
+  import Loader from '../components/Loader.vue';
   
   export default {
     components: {
-      CharacterDetails
+      CharacterDetails,
+      Loader
     },
     data() {
       return {
-        heroe: null,
-        characterId: null
+        heroe: "",
+        characterId: ""
       };
     },
     created(){

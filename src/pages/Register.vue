@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
@@ -87,7 +88,14 @@ export default {
     },
     submitMethod(){
       if(!this.formErrors.username && !this.formErrors.email && !this.formErrors.password && !this.formErrors.error && !this.formErrors.rpassword){
-        console.log(this.formData)
+        axios.post("https://superheroverse.up.railway.app/users/create/",this.formData)
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.error(error)
+        })
+        this.$router.push('/heroes')
       }
     }
   },
