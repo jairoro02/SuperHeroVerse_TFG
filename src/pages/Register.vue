@@ -33,6 +33,7 @@
 
 <script>
 import axios from 'axios';
+import { useUserStore } from '../storage/userStore';
 export default {
   data() {
     return {
@@ -87,15 +88,20 @@ export default {
       }
     },
     submitMethod(){
+      const userStore = useUserStore();
       if(!this.formErrors.username && !this.formErrors.email && !this.formErrors.password && !this.formErrors.error && !this.formErrors.rpassword){
         axios.post("https://superheroverse.up.railway.app/users/create/",this.formData)
         .then(response => {
           console.log(response.data);
+          userStore.setLoggedIn(true);
+          userStore.setEmail(this.formData.email);
+          userStore.setUsername(this.formData.username)
+          this.$router.push('/heroes')
         })
         .catch(error => {
           console.error(error)
         })
-        this.$router.push('/heroes')
+        
       }
     }
   },

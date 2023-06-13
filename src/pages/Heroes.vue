@@ -3,7 +3,7 @@
       <section class="filters">
         <div class="search-container">
           <div class="search-wrapper">
-            <input type="text" class="search-input" placeholder="Search your hero">
+            <input type="text" class="search-input" placeholder="Search your hero" v-model="searchText" @keyup="filterHeroes">
             <button class="search-button">Search</button>
           </div>
         </div>
@@ -59,7 +59,8 @@
       return {
         heroes: [],
         selectedUniverse: '',
-        selectedGender: ''
+        selectedGender: '',
+        searchText:''
       };
     },
     mounted() {
@@ -98,6 +99,11 @@
   
         if (this.selectedGender) {
           filteredHeroes = filteredHeroes.filter(hero => hero.sexo === this.selectedGender);
+        }
+        if (this.searchText) {
+          const searchTextLower = this.searchText.toLowerCase();
+          filteredHeroes = filteredHeroes.filter(hero => hero.nombre && hero.nombre.toLowerCase().includes(searchTextLower));
+          console.log(this.searchText)
         }
   
         return filteredHeroes;
