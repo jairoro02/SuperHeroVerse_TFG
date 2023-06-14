@@ -20,7 +20,7 @@ const routes = [
     { path: '/login', name: 'login', component: Login},
     { path: '/heroes/:id', name: 'heroeDetails', component: OneHero},
     { path: '/villains/:id', name: 'villainDetails', component: OneVillain},
-    { path: '/:pathMatch(.*)*', component: NoPageFound },
+    { path: '/:catchAll(.*)', name: 'notFound', component: NoPageFound },
 ]
 
 const router = createRouter({

@@ -3,7 +3,7 @@
       <section class="filters">
         <div class="search-container">
           <div class="search-wrapper">
-            <input type="text" class="search-input" placeholder="Search your hero" v-model="searchText" @keyup="filterHeroes">
+            <input type="text" class="search-input" placeholder="Search your hero" v-model="searchText" >
             <button class="search-button">Search</button>
           </div>
         </div>
@@ -11,12 +11,12 @@
           <div class="all-options">
             <h1 class="filter-text">Universes</h1>
             <div class="filter-options">
-              <div :class="['filter-option', { 'activo': selectedUniverse === 'Marvel' }]" @click="universeFilter('Marvel')">
-                <img class="marvel" src="../assets/imagesandvideos/marvel-logo-1.png" alt="Marvel logo">
+              <div class="filter-option" >
+                <img :class="{ 'activo': selectedUniverse === 'Marvel' }" @click="universeFilter('Marvel')" src="../assets/imagesandvideos/marvel-logo-1.png" alt="Marvel logo">
                 <h1>Marvel</h1>
               </div>
-              <div :class="['filter-option', { 'activo': selectedUniverse === 'DC Comics' }]" @click="universeFilter('DC Comics')">
-                <img class="dc" src="../assets/imagesandvideos/dc-logo.png" alt="logo DC">
+              <div class="filter-option">
+                <img :class="{ 'activo': selectedUniverse === 'DC' }" @click="universeFilter('DC')" src="../assets/imagesandvideos/dc-logo.png" alt="logo DC">
                 <h1>Dc Comics</h1>
               </div>
             </div>
@@ -101,9 +101,8 @@
           filteredHeroes = filteredHeroes.filter(hero => hero.sexo === this.selectedGender);
         }
         if (this.searchText) {
-          const searchTextLower = this.searchText.toLowerCase();
-          filteredHeroes = filteredHeroes.filter(hero => hero.nombre && hero.nombre.toLowerCase().includes(searchTextLower));
-          console.log(this.searchText)
+          const searchLowerCase = this.searchText.toLowerCase();
+          filteredHeroes = filteredHeroes.filter(hero => hero.name.toLowerCase().startsWith(searchLowerCase));
         }
   
         return filteredHeroes;

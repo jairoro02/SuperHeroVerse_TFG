@@ -2,6 +2,7 @@
     <div>
         <h1>{{ username }}</h1>
         <h1>{{ email }}</h1>
+        <button @click="logOut">Log Out</button>
     </div>
 </template>
 
@@ -23,6 +24,16 @@
             return userStore.favoritos;
             },
         },
+        methods: {
+            logOut(){
+                localStorage.clear
+                const userStore = useUserStore();
+                userStore.setLoggedIn(false);
+                userStore.setUsername('')
+                this.$router.push("/heroes")
+
+            }
+        }
     }
 </script>
 

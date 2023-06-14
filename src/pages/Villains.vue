@@ -3,7 +3,7 @@
         <section class="filters">
             <div class="search-container">
                 <div class="search-wrapper">
-                <input type="text" class="search-input" placeholder="Search your hero">
+                <input type="text" class="search-input" placeholder="Search your hero" v-model="searchText">
                 <button class="search-button">Search</button>
                 </div>
             </div>
@@ -12,11 +12,11 @@
                     <h1 class="filter-text">Universes</h1>
                     <div class="filter-options">
                         <div class="filter-option">
-                            <img class="marvel" src="../assets/imagesandvideos/marvel-logo-1.png" alt="Marvel logo">
+                            <img class="marvel" src="../assets/imagesandvideos/marvel-logo-1.png" alt="Marvel logo" :class=" { 'activo': selectedUniverse === 'Marvel' }" @click="universeFilter('Marvel')">
                             <h1>Marvel</h1>
                         </div>
                         <div class="filter-option">
-                            <img class="dc" src="../assets/imagesandvideos/dc-logo.png" alt="logo DC">
+                            <img class="dc" src="../assets/imagesandvideos/dc-logo.png" alt="logo DC" :class=" { 'activo': selectedUniverse === 'DC' }" @click="universeFilter('DC')">
                             <h1>Dc Comics</h1>
                         </div>
                     </div>
@@ -38,8 +38,8 @@
         </section>
         <section class="all-characters">
             <div class="characters">
-              <Loader v-if="heroes.length === 0" />
-                <CharacterVillain v-else :characters="filterHeroes()" />
+              <Loader v-if="villains.length === 0" />
+                <CharacterVillain v-else :characters="filterVillains()" />
             </div>
         </section>
     </main>
@@ -57,19 +57,20 @@
     },
     data() {
       return {
-        heroes: [],
+        villains: [],
         selectedUniverse: '',
-        selectedGender: ''
+        selectedGender: '',
+        searchText: ''
       };
     },
     mounted() {
-      this.fetchHeroes();
+      this.fetchVillains();
     },
     methods: {
-      fetchHeroes() {
+      fetchVillains() {
         axios.get('https://superheroverse.up.railway.app/villanos/')
           .then(response => {
-            this.heroes = response.data;
+            this.villains = response.data;
           })
           .catch(error => {
             console.error(error);
@@ -89,18 +90,23 @@
           this.selectedGender = gender; 
         }
       },
-      filterHeroes() {
-        let filteredHeroes = this.heroes;
+      filterVillains() {
+        let filteredVillains = this.villains;
   
         if (this.selectedUniverse) {
-          filteredHeroes = filteredHeroes.filter(hero => hero.universe === this.selectedUniverse);
+          filteredVillains = filteredVillains.filter(hero => hero.universe === this.selectedUniverse);
         }
   
         if (this.selectedGender) {
-          filteredHeroes = filteredHeroes.filter(hero => hero.sexo === this.selectedGender);
+          filteredVillains = filteredVillains.filter(hero => hero.sexo === this.selectedGender);
+        }
+
+        if (this.searchText) {
+          const searchLowerCase = this.searchText.toLowerCase();
+          filteredVillains = filteredVillains.filter(hero => hero.name.toLowerCase().startsWith(searchLowerCase));
         }
   
-        return filteredHeroes;
+        return filteredVillains;
       }
     }
   }

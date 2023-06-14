@@ -1,6 +1,9 @@
 <template>
-    <Loader v-if="!villain" />
-    <CharacterDetails v-else :character="villain"/>
+    <main class="fondo">
+        <Loader v-if="!villain" />
+        <CharacterDetails v-else :character="villain"/>
+    </main>
+    
 </template>
 
 <script>

@@ -1,7 +1,8 @@
 <template>
-
-  <Loader v-if="!heroe" />
-  <CharacterDetails v-else :character="heroe" />
+  <main class="fondo">
+    <Loader v-if="!heroe" />
+    <CharacterDetails v-else :character="heroe" />
+  </main>
 </template>
 
 <script>

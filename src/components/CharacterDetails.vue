@@ -1,14 +1,14 @@
 <template>
-    <main class="fondo">
-        <section class="fondo-heroe"></section>
-        <div class="one-character">
-            <img :src="character.image">
-            <div class="description">
-                <h1>{{ character.name}}</h1>
-                <p>{{character.descripcion}}</p>
-            </div>
+
+    <section class="fondo-heroe"></section>
+    <div class="one-character">
+        <img :src="character.image">
+        <div class="description">
+            <h1>{{ character.name}}</h1>
+            <p>{{character.descripcion}}</p>
         </div>
-    </main>
+    </div>
+
     
 </template>
 

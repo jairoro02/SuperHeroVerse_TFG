@@ -3,7 +3,7 @@
         <h1>What is SuperHeroVerse?</h1>
         <section class="video">
             <video width="1280" height="720" controls>
-                <source src="../assets/imagesandvideos/DC .mp4" type="video/mp4">
+                <source src="../assets/imagesandvideos/DC.mp4" type="video/mp4">
                 Tu navegador no admite videos
             </video>
         </section>

@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <router-link :to="{ name: 'home' }" class="logo"><img src="../assets/imagesandvideos/a abstract blue logo for a web app about the unive.jpg" alt="imagen del logo">SuperHeroVerse</router-link>
+    <router-link :to="{ name: 'home' }" class="logo"><img src="../assets/imagesandvideos/logo-blue.jpg" alt="imagen del logo">SuperHeroVerse</router-link>
     <div class="options">
       <router-link :to="{ name: 'home' }" class="option">Home</router-link>
       <router-link :to="{ name: 'heroes' }" class="option">Heroes</router-link>

@@ -94,7 +94,6 @@ export default {
         .then(response => {
           console.log(response.data);
           userStore.setLoggedIn(true);
-          userStore.setEmail(this.formData.email);
           userStore.setUsername(this.formData.username)
           this.$router.push('/heroes')
         })

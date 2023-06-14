@@ -209,7 +209,7 @@
   }
   
   .hex-brick {
-    background: violet;
+    background: rgb(151, 33, 33);
     width: 30px;
     height: 17px;
     position: absolute;
@@ -523,7 +523,7 @@
   
   @keyframes fade00 {
     0% {
-      background: rgb(228, 0, 228);
+      background: rgb(255, 2, 78);
     }
   
     50% {
@@ -531,7 +531,7 @@
     }
   
     100% {
-      background: violet;
+      background: rgb(151, 33, 33);
     }
   }
 </style>
