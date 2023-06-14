@@ -49,11 +49,10 @@
   import axios from 'axios';
   import CharacterVillain from '../components/CharacterVillain.vue';
   import Loader from '../components/Loader.vue';
-  
   export default {
     components: {
       CharacterVillain,
-      Loader
+      Loader,
     },
     data() {
       return {
@@ -103,9 +102,8 @@
 
         if (this.searchText) {
           const searchLowerCase = this.searchText.toLowerCase();
-          filteredVillains = filteredVillains.filter(hero => hero.name.toLowerCase().startsWith(searchLowerCase));
+          filteredVillains = filteredVillains.filter(hero => hero.name.toLowerCase().includes(searchLowerCase));
         }
-  
         return filteredVillains;
       }
     }
