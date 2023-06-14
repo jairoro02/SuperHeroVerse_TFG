@@ -102,7 +102,7 @@
         }
         if (this.searchText) {
           const searchLowerCase = this.searchText.toLowerCase();
-          filteredHeroes = filteredHeroes.filter(hero => hero.name.toLowerCase().startsWith(searchLowerCase));
+          filteredHeroes = filteredHeroes.filter(hero => hero.name.toLowerCase().includes(searchLowerCase));
         }
   
         return filteredHeroes;

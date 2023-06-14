@@ -17,5 +17,10 @@ export const useUserStore = defineStore({
       this.username = name;
       localStorage.setItem('username', name);
     },
+    setLogOut(){
+      this.username = "";
+      this.loggedIn = false;
+      localStorage.clear()
+    }
   }
 });

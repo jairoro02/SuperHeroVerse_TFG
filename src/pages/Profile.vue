@@ -10,6 +10,7 @@
     import { useUserStore } from '../storage/userStore';
     console.log(localStorage)
     export default {
+
         computed: {
             username() {
             const userStore = useUserStore();
@@ -25,15 +26,13 @@
             },
         },
         methods: {
-            logOut(){
-                localStorage.clear
+            logOut() {
                 const userStore = useUserStore();
-                userStore.setLoggedIn(false);
-                userStore.setUsername('')
-                this.$router.push("/heroes")
-
+                userStore.setLogOut();
+                this.$router.push('/heroes')
             }
         }
+
     }
 </script>
 

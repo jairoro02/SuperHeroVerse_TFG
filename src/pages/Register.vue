@@ -37,6 +37,7 @@ import { useUserStore } from '../storage/userStore';
 export default {
   data() {
     return {
+      users: [],
       rpassword: "",
       formData: {
         username: "",
@@ -54,11 +55,25 @@ export default {
   },
   methods: {
     validateUsername() {
-      if (this.formData.username.trim() === "") {
-        this.formErrors.username = "Username is required.";
-      } else {
-        this.formErrors.username = "";
-      }
+      axios.get('https://superheroverse.up.railway.app/users/')
+        .then(response => {
+          this.users = response.data;
+          if (this.formData.username.trim() === "") {
+            this.formErrors.username = "Username is required.";
+          } else {
+            this.formErrors.username = "";
+          }
+          this.users.map(user =>{
+            if(this.formData.username === user.username){
+              this.formErrors.username = "This username is alredy taken";
+            }else{
+              this.formErrors.username = "";
+            }
+          })
+        })
+        .catch(error => {
+          console.error(error);
+        });
     },
     validateEmail() {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
