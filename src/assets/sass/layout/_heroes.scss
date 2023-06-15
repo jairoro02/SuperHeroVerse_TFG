@@ -134,6 +134,12 @@
         height: 550px;
         padding-bottom: 1%;
         transition: all 600ms;
+        &:hover{
+          cursor: pointer;
+          transform: scale(1.1);
+          transition: all 600ms;
+
+        }
         
       }
       h1{
@@ -141,13 +147,7 @@
         padding-top: 3%;
         padding-bottom: 5%;
       }
-      &:hover{
-        cursor: pointer;
-        img{
-          transform: scale(1.1);
-          transition: all 600ms;
-        }
-      }
+      
     }
   }
 }
