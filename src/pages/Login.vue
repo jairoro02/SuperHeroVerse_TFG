@@ -26,6 +26,8 @@
   </template>
   
   <script>
+  import axios from 'axios';
+  import { useUserStore } from '../storage/userStore';
   export default {
     data() {
       return {
@@ -61,8 +63,24 @@
         }
       },
       submitMethod() {
-        if (!this.formErrors.username && !this.formErrors.email) {
-          console.log(this.formData);
+        const userStore = useUserStore();
+        if (!this.formErrors.username && !this.formErrors.email && this.formData.username && this.formData.password && this.formData.email) {
+          axios.post("https://superheroverse.up.railway.app/token",{},{
+            auth:{
+              username: this.formData.username,
+              password: this.formData.password
+            }
+          })
+          .then(response=>{
+            const token = response.data
+            userStore.setLoggedIn(true)
+            userStore.setToken(token);
+            userStore.setUsername(this.formData.username);
+            this.$router.push("/profile");
+          })
+          .catch(error =>{
+            console.log(error)
+          })
         } else {
           this.formErrors.error = "Please fix the form errors.";
         }

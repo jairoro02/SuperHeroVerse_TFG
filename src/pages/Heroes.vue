@@ -49,7 +49,6 @@
   import axios from 'axios';
   import Character from '../components/Character.vue';
   import Loader from '../components/Loader.vue';
-  
   export default {
     components: {
       Character,

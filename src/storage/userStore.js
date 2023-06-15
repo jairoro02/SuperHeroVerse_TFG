@@ -6,6 +6,7 @@ export const useUserStore = defineStore({
 
     loggedIn: localStorage.getItem('loggedIn') === 'true',
     username: localStorage.getItem('username') || '',
+    token: localStorage.getItem('token') || '',
 
   }),
   actions: {
@@ -21,6 +22,10 @@ export const useUserStore = defineStore({
       this.username = "";
       this.loggedIn = false;
       localStorage.clear()
+    },
+    setToken(token){
+      this.token = token;
+      localStorage.setItem('token', token);
     }
   }
 });

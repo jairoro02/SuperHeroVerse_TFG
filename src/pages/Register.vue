@@ -104,18 +104,33 @@ export default {
     },
     submitMethod(){
       const userStore = useUserStore();
-      if(!this.formErrors.username && !this.formErrors.email && !this.formErrors.password && !this.formErrors.error && !this.formErrors.rpassword){
-        axios.post("https://superheroverse.up.railway.app/users/create/",this.formData)
-        .then(response => {
-          console.log(response.data);
-          userStore.setLoggedIn(true);
-          userStore.setUsername(this.formData.username)
-          this.$router.push('/heroes')
-        })
-        .catch(error => {
-          console.error(error)
-        })
-        
+      if(!this.formErrors.username && !this.formErrors.email && !this.formErrors.password && 
+        !this.formErrors.error && !this.formErrors.rpassword && this.formData.username && this.formData.email && this.formData.password ){
+          axios.post("https://superheroverse.up.railway.app/users/create/",this.formData)
+          .then(response => {
+            axios.post("https://superheroverse.up.railway.app/token",{},{
+              auth:{
+                username: this.formData.username,
+                password: this.formData.password
+              }
+            })
+            .then(response=>{
+              const token = response.data
+              userStore.setLoggedIn(true)
+              userStore.setToken(token);
+              userStore.setUsername(this.formData.username);
+              
+            }).catch(err=>{
+              console.log(err)
+            })
+            this.$router.push("/profile");
+          })
+          .catch(error => {
+            console.error(error)
+          })
+          
+      }else{
+        this.formErrors.error = "Todos los campos tienen que estar llenos"
       }
     }
   },
