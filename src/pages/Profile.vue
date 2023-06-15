@@ -7,7 +7,8 @@
 </template>
 
 <script>
-    import { useUserStore } from '../storage/userStore';
+    import { useUserStore } from '../storage/userStore'
+    console.log(localStorage)
     export default {
 
         computed: {

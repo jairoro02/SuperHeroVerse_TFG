@@ -103,6 +103,7 @@ export default {
       }
     },
     submitMethod(){
+      this.formErrors.error = "";
       const userStore = useUserStore();
       if(!this.formErrors.username && !this.formErrors.email && !this.formErrors.password && 
         !this.formErrors.error && !this.formErrors.rpassword && this.formData.username && this.formData.email && this.formData.password ){

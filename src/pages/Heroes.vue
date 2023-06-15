@@ -12,11 +12,11 @@
             <h1 class="filter-text">Universes</h1>
             <div class="filter-options">
               <div class="filter-option" >
-                <img :class="{ 'activo': selectedUniverse === 'Marvel' }" @click="universeFilter('Marvel')" src="../assets/imagesandvideos/marvel-logo-1.png" alt="Marvel logo">
+                <img :class="{ 'activo': selectedUniverse === 'Marvel' }" @click="universeFilter('Marvel')" src="/marvel-logo-1.png" alt="Marvel logo">
                 <h1>Marvel</h1>
               </div>
               <div class="filter-option">
-                <img :class="{ 'activo': selectedUniverse === 'DC' }" @click="universeFilter('DC')" src="../assets/imagesandvideos/dc-logo.png" alt="logo DC">
+                <img :class="{ 'activo': selectedUniverse === 'DC' }" @click="universeFilter('DC')" src="/dc-logo.png" alt="logo DC">
                 <h1>Dc Comics</h1>
               </div>
             </div>
