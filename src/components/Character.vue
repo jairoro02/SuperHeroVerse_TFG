@@ -7,7 +7,7 @@
       <h1>{{ hero.name }}</h1>
       <a v-if="!log"></a>
       <a v-else @click="newFavorite(hero)">
-        <font-awesome-icon class="heart" :icon="['fas', 'heart']" />
+        <font-awesome-icon class="heart" :class="{'active': isFavorite(hero)}" :icon="['fas', 'heart']" />
       </a>
   </div>
     
@@ -35,12 +35,10 @@ export default {
   mounted(){
     const userStore = useUserStore();
     this.log = userStore.loggedIn
-    console.log(userStore.loggedIn)
     if(this.log){
       axios.get(`https://superheroverse.up.railway.app/users/${userStore.username}/`)
       .then(response=>{
-        this.person = response.data,
-        console.log(this.person)
+        this.person = response.data
       }).catch(err=>{
         console.log(err)
       })
@@ -51,23 +49,70 @@ export default {
       const token = localStorage.getItem('token');
       const personId = this.person.id; // Obtener el ID del person en lugar del objeto completo
       const heroeId = hero.id;
-
-      axios.post('https://superheroverse.up.railway.app/favorites/create/', {
-        personId: personId, // Pasar el ID del person en lugar del objeto completo
-        heroeId: heroeId // Pasar el ID del heroe
-      }, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
+      const heroeCompleto = hero;
+      const personaFavoritos = this.person.favoritos;
+      if(this.isFavorite(heroeCompleto)){
+        const fav = this.getFavorite(heroeCompleto);
+        
+        axios.delete(`https://superheroverse.up.railway.app/favorites/${fav.id}/`,{
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        .then(response=>{
+          axios.get(`https://superheroverse.up.railway.app/users/${this.person.username}/`)
+          .then(response => {
+            this.person = response.data;
+            this.$forceUpdate();
+          })
+          .catch(error => {
+            console.error('Error al obtener los datos actualizados del usuario:', error);
+          });
+        }).catch(err=>{
+          console.log(err)
+        })
+      }else{
+        axios.post('https://superheroverse.up.railway.app/favorites/create/', {
+          personId: personId, // Pasar el ID del person en lugar del objeto completo
+          heroeId: heroeId // Pasar el ID del heroe
+        }, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
         .then(response => {
-          console.log('Favorito guardado correctamente:', response.data);
+          axios.get(`https://superheroverse.up.railway.app/users/${this.person.username}/`)
+          .then(response => {
+            this.person = response.data;
+            this.$forceUpdate();
+          })
+          .catch(error => {
+            console.error('Error al obtener los datos actualizados del usuario:', error);
+          });
         })
         .catch(error => {
           console.error('Error al guardar el favorito:', error);
         });
+      }
+
+      
+    },
+    isFavorite(hero) {
+      if (this.person && this.person.favoritos) {
+        const favoriteHeroIds = this.person.favoritos.map(favorite => favorite.heroe.id);
+        return favoriteHeroIds.includes(hero.id);
+      }
+      return false;
+    },
+    getFavorite(hero) {
+      if (this.person && this.person.favoritos) {
+        return this.person.favoritos.find(favorite => favorite.heroe.id === hero.id);
+      }
+      return null;
     }
+    
   }
+
 };
 </script>
   
@@ -93,5 +138,9 @@ export default {
       cursor: pointer;
       transition: all 0.5s;
     }
+  }
+  .heart.active{
+    color: rgb(182, 29, 182);
+    transition: all 0.5s;
   }
   </style>
