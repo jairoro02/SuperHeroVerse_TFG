@@ -49,27 +49,23 @@ export default {
   methods: {
     newFavorite(hero) {
       const token = localStorage.getItem('token');
-      const person = this.person;
-      let character = hero;
+      const personId = this.person.id; // Obtener el ID del person en lugar del objeto completo
+      const heroeId = hero.id;
 
-      axios.get(`https://superheroverse.up.railway.app/heroes/${character.id}/`)
-      .then(response=>{
-        this.actualHero = response.data;
-        axios.post('https://superheroverse.up.railway.app/favorites/create/', { person, hero }, {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        })
+      axios.post('https://superheroverse.up.railway.app/favorites/create/', {
+        personId: personId, // Pasar el ID del person en lugar del objeto completo
+        heroeId: heroeId // Pasar el ID del heroe
+      }, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
         .then(response => {
           console.log('Favorito guardado correctamente:', response.data);
         })
         .catch(error => {
           console.error('Error al guardar el favorito:', error);
         });
-      })
-      .catch(err=>{
-        console.log("Error al obtener el héroe:", err);
-      });
     }
   }
 };
