@@ -76,10 +76,11 @@
             userStore.setLoggedIn(true)
             userStore.setToken(token);
             userStore.setUsername(this.formData.username);
-            this.$router.push("/profile");
+            this.$router.push("/");
           })
           .catch(error =>{
             console.log(error)
+            this.formErrors.error = "Some data are incorrect"
           })
         } else {
           this.formErrors.error = "Please fix the form errors.";

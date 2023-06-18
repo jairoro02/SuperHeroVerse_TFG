@@ -31,7 +31,6 @@
         axios.get(`https://superheroverse.up.railway.app/heroes/${this.characterId}/`)
         .then(response => {
           this.heroe = response.data;
-          console.log(this.heroe)
         })
         .catch(error => {
           console.error(error);

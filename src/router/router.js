@@ -7,6 +7,7 @@ import Register from '../pages/Register.vue';
 import Contactus from '../pages/Contactus.vue';
 import Login from '../pages/Login.vue';
 import OneHero from '../pages/OneHero.vue';
+import Events from '../pages/Events.vue';
 import OneVillain from '../pages/OneVillain.vue';
 import { createRouter, createWebHistory} from 'vue-router'
 
@@ -20,6 +21,7 @@ const routes = [
     { path: '/login', name: 'login', component: Login},
     { path: '/heroes/:id', name: 'heroeDetails', component: OneHero},
     { path: '/villains/:id', name: 'villainDetails', component: OneVillain},
+    { path: '/events', name:'events', component: Events},
     { path: '/:catchAll(.*)', name: 'notFound', component: NoPageFound },
 ]
 

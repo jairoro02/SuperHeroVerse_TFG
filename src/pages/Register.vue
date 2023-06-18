@@ -63,13 +63,14 @@ export default {
           } else {
             this.formErrors.username = "";
           }
-          this.users.map(user =>{
-            if(this.formData.username === user.username){
-              this.formErrors.username = "This username is alredy taken";
-            }else{
-              this.formErrors.username = "";
-            }
-          })
+          const usernameExists = this.users.some(user => {
+            return this.formData.username === user.username;
+          });
+          if (usernameExists) {
+            this.formErrors.username = "This username is already taken";
+          } else {
+            this.formErrors.username = "";
+          }
         })
         .catch(error => {
           console.error(error);
@@ -89,8 +90,10 @@ export default {
     validatePassword() {
       if (this.formData.password.trim() === "") {
         this.formErrors.password = "Password is required.";
-      } else {
-        this.formErrors.password = "";
+      } else if(this.formData.password.length <= 5){
+        this.formErrors.password = "Password must to have at least 6 letters";
+      }else{
+        this.formErrors.password = ""
       }
     },
     validateRepeatPassword() {
@@ -124,7 +127,7 @@ export default {
             }).catch(err=>{
               console.log(err)
             })
-            this.$router.push("/profile");
+            this.$router.push("/");
           })
           .catch(error => {
             console.error(error)

@@ -92,7 +92,7 @@
 }
 
 .fondo{
-  background-image: url("/src/assets/imagesandvideos/comic-fondo.jpg");
+  background-image: url("https://i.ibb.co/YRBNmYm/comic-fondo.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -101,7 +101,7 @@
 }
 
 .fondito{
-  background-image: url("/src/assets/imagesandvideos/fondo-villano.jpg");
+  background-image: url("https://i.ibb.co/ZfdqRjc/fondo-villano.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -220,7 +220,7 @@
     transition: all 600ms;
     .character{
       width: 162.5px;
-      height: 325px;
+      height: 360px;
       transition: all 600ms;
       img{
         height: 275px;
@@ -286,8 +286,9 @@
 
   
     .characters{
+      justify-content: center;
+      transition: all 0.5s;
       .character{
-        margin-left: 25%;
         img{
         }
         h1{
