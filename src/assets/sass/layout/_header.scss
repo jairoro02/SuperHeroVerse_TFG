@@ -57,6 +57,7 @@
 @media (max-width: 1000px) {
     
     .header{
+        height: 101px;
         .options {
             margin: 0;
             transition: all 600ms;
@@ -68,6 +69,7 @@
        .logo{
             font-size: 18px;
             width: 20%;
+            margin-left: 24px;
             transition: all 600ms;
         }
         .user{
@@ -92,6 +94,7 @@
         }
        .logo{
             width: 242px;
+
             transition: all 600ms;
             img{
                 padding-right: 0;
@@ -124,10 +127,9 @@
             }
         }
        .logo{
-            margin: 0 auto;
             transition: all 600ms;
             img{
-                height: 60px;
+                height: 79px;
                 transition: all 600ms;
             }
         }

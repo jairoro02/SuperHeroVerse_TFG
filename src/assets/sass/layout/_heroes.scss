@@ -172,13 +172,71 @@
                     }
                     
                     img{
-
+                      height: 80px;
+                      padding: 0;
                     }
                 }
             }
 
         }
     }
+}
+}
+
+@media(max-width:845px){
+  .filters{
+    .all-filters{
+
+      transition: all 600ms;
+        .all-options{
+
+          transition: all 600ms;
+            .filter-text{
+
+              transition: all 600ms;
+            }
+            .filter-options{
+                .filter-option{
+
+                    .marvel{
+
+                    }
+                    
+                    img{
+                      transition: all 600ms;
+                    }
+                }
+            }
+
+        }
+    }
+}
+.all-characters{
+
+  
+  .characters{
+    justify-content: center;
+    transition: all 600ms;
+    .character{
+
+      transition: all 600ms;
+      img{
+
+      }
+      h1{
+
+      }
+      &:hover{
+
+        img{
+
+        }
+      }
+    }
+    .character.dc{
+      
+    }
+  }
 }
 }
 
@@ -198,13 +256,12 @@
                 .filter-option{
                   font-size: 12px;
                     .marvel{
-
+                      width: 104px;
+                      height: 42px;
                     }
                     
                     img{
-                      transform: scale(0.8);
                       transition: all 600ms;
-
                     }
                 }
             }
@@ -216,14 +273,15 @@
 
   
   .characters{
-    width: 90%;
+    width: 322px;
     transition: all 600ms;
     .character{
-      width: 162.5px;
-      height: 360px;
+      width: 299px;
+      height: 540px;
       transition: all 600ms;
       img{
-        height: 275px;
+        object-fit: contain;
+        height: 420px;
         transition: all 600ms;
       }
       h1{
@@ -246,7 +304,7 @@
 @media(max-width:475px){
   .filters{
     .all-filters{
-      width: 325px;
+      width: 425px;
       transition: all 600ms;
         .all-options{
             .filter-text{
@@ -263,8 +321,6 @@
                     }
                     
                     img{
-                      transform: scale(0.6);
-                      transition: all 600ms;
                     }
                 }
             }

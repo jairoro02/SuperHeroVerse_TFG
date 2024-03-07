@@ -12,12 +12,10 @@
             <h1 class="filter-text">Universes</h1>
             <div class="filter-options">
               <div class="filter-option" >
-                <img :class="{ 'activo': selectedUniverse === 'Marvel' }" @click="universeFilter('Marvel')" src="/marvel-logo-1.png" alt="Marvel logo">
-                <h1>Marvel</h1>
+                <img class="marvel" @click="universeFilter('Marvel')" src="/marvel-logo-1.png" alt="Marvel logo">
               </div>
               <div class="filter-option">
                 <img :class="{ 'activo': selectedUniverse === 'DC' }" @click="universeFilter('DC')" src="/dc-logo.png" alt="logo DC">
-                <h1>Dc Comics</h1>
               </div>
             </div>
           </div>
@@ -26,11 +24,9 @@
             <div class="filter-options">
               <div class="filter-option">
                 <img src="../assets/imagesandvideos/male-hero.png" alt="Male option" :class=" { 'activo': selectedGender === 'Male' }" @click="genderFilter('Male')">
-                <h1>Male</h1>
               </div>
               <div class="filter-option">
                 <img src="../assets/imagesandvideos/female-hero.png" alt="Female option" :class=" { 'activo': selectedGender === 'Female' }" @click="genderFilter('Female')">
-                <h1>Female</h1>
               </div>
             </div>
           </div>
