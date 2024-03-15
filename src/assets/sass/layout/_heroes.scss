@@ -258,6 +258,7 @@
                     .marvel{
                       width: 104px;
                       height: 42px;
+                      transition: all 600ms;
                     }
                     
                     img{
@@ -307,20 +308,32 @@
       width: 425px;
       transition: all 600ms;
         .all-options{
+          width: 35%;
+          transition: all 600ms;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
             .filter-text{
               font-size: 25px;
               padding: 0;
               transition: all 600ms;
             }
             .filter-options{
+              width: 130px;
+              display: flex;
+              justify-content: space-between;
                 .filter-option{
                   font-size: 10px;
                   transition: all 600ms;
+                  width: 60px;
                     .marvel{
-
+                      width: 70px;
+                      height: 40px;
+                      transition: all 600ms;
                     }
                     
                     img{
+                      height: 60px;
                     }
                 }
             }

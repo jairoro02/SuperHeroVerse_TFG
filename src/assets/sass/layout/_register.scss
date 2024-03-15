@@ -6,14 +6,16 @@
     width: 80%;
     transition: all 600ms;
     h1{
+        font-size: 32px;
         margin: 0 auto;
     }
     .form-register{
         display: flex;
         flex-direction: column;
         justify-content: space-between; 
-        width: 50%; 
+        width: 60%; 
         margin: 0 auto;
+        transition: all 600ms;
 
         .form-option{
             display: flex;
@@ -27,8 +29,11 @@
                 border-width: 0.5px;
                 border-style:solid;
                 border-color: #b8b1b1;
+                height: 45px;
+
                 border-radius: 10px;
                 transition: all 0.5s;
+                font-size: 20px;
             }
             input:focus{
                 outline-color: $colorprincipal;
@@ -47,17 +52,23 @@
         .button{
             display: flex;
             background-color: $colorprincipal;
-            width: 89px;
-            padding: 1.5%;
+            width: 113px;
+            height: 50px;
+            padding: 15px;
             margin-top: 2%;
             justify-content: center;
             border-radius: 0 0 0 25px;
             transition: all 0.5s;
+            color: rgb(225, 225, 225);
+            transition: all 600ms;
 
         }
         .button:hover{
             background-color: #901414;
             transition: all 0.5s;
+        }
+        p{
+            transition: all 600ms;
         }
     }
 }
@@ -68,6 +79,43 @@
         transition: all 600ms;
     }
 }
-    
-    
 
+@media(max-width:950px){
+    .main-register{
+
+   
+        .form-register{
+
+            width: 90%;
+            transition: all 600ms;
+
+            .form-option{
+
+                label{
+                    margin-top: 5px;
+                    font-size: 15px;
+
+                }
+                input{
+                }
+                
+            }
+            .options{
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+                align-items: center;
+                transition: all 600ms;
+                p{
+                    margin-left: 8px;
+                    transition: all 600ms;
+                }
+                .button{
+                    font-size: 15px;
+                    margin-top: 5px;
+                    transition: all 600ms;
+                }
+            }
+        }
+    }
+}            

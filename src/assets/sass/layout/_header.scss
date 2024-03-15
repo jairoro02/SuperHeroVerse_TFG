@@ -13,6 +13,10 @@
         width: 5%;
         font-size: 25px;
         transition: all 600ms;
+        .title{
+            transition: all 600ms;
+            margin-left: 10px;
+        }
         img{
             height: 80px;
             padding-right: 5%;
@@ -128,6 +132,10 @@
         }
        .logo{
             transition: all 600ms;
+            .title{
+                display: none;
+                transition: all 600ms;
+            }
             img{
                 height: 79px;
                 transition: all 600ms;

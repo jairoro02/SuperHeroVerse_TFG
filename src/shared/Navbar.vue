@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <router-link :to="{ name: 'home' }" class="logo">
-      <img src="../assets/imagesandvideos/logo-blue.jpg" alt="imagen del logo">SuperHeroVerse
+      <img src="../assets/imagesandvideos/logo-blue.jpg" alt="imagen del logo"> <p class="title">SuperHeroVerse</p>
     </router-link>
     <div class="options" v-show="windowWidth >= 1000">
       <router-link :to="{ name: 'home' }" class="option">Home</router-link>
@@ -9,7 +9,7 @@
       <router-link :to="{ name: 'villains' }" class="option">Villains</router-link>
       <router-link v-if="user.loggedIn" :to="{ name: 'events' }" class="option">Events</router-link>
     </div>
-    <router-link v-if="user.loggedIn" :to="{ name: 'profile' }" class="user" >
+    <router-link v-if="user.loggedIn" v-show="windowWidth >= 1000" :to="{ name: 'profile' }" class="user" >
       <i class="fa-solid fa-user"></i>
     </router-link>
     <router-link v-show="windowWidth >= 1000" v-else to="/register" class="user register" >Register</router-link>
@@ -21,6 +21,9 @@
         <router-link :to="{ name: 'villains' }" class="option">Villains</router-link>
         <router-link v-if="user.loggedIn" :to="{ name: 'events' }" class="option">Events</router-link>
         <router-link v-if="!user.loggedIn" to="/register" class="option">Register</router-link>
+        <router-link v-if="user.loggedIn"  :to="{ name: 'profile' }" class="option" >
+          Profile
+        </router-link>
       </div>
     </transition>
   </header>

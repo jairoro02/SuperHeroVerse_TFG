@@ -17,9 +17,12 @@
           <input type="password" name="password" v-model="formData.password" @input="validatePassword" @keydown.space.prevent>
         </div>
   
-        <p>I don´t have an <router-link :to="{ name: 'register' }" class="link-login">account</router-link></p>
+        <div class="options">
+          <p>I don´t have an <router-link :to="{ name: 'register' }" class="link-login">account</router-link></p>
   
-        <button type="submit" class="button">Submit</button>
+          <button type="submit" class="button">Submit</button>
+        </div>
+        
         <p v-if="formErrors.error" class="error-message">{{ formErrors.error }}</p>
       </form>
     </main>

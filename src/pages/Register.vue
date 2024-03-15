@@ -23,9 +23,11 @@
         <p v-if="formErrors.rpassword" class="error-message">{{ formErrors.rpassword }}</p>
       </div>
 
-      <p>I have an <router-link :to="{ name: 'login' }" class="link-login">account</router-link></p>
-
-      <button type="submit" class="button">Submit</button>
+      <div class="options">
+        <p>I have an <router-link :to="{ name: 'login' }" class="link-login">account</router-link></p>
+        <button type="submit" class="button">Submit</button>
+      </div>
+      
       <p v-if="formErrors.error" class="error-message">{{ formErrors.error }}</p>
     </form>
   </main>
