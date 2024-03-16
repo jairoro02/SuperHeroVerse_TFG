@@ -4,7 +4,7 @@
         <div class="search-container">
           <div class="search-wrapper">
             <input type="text" class="search-input" placeholder="Search your hero" v-model="searchText" >
-            <button class="search-button">Search</button>
+            <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
           </div>
         </div>
         <div class="all-filters">

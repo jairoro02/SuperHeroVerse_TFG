@@ -2,8 +2,9 @@
     <main class="fondo">
       <div class="vacio"></div>
       <div class="datos">
+        <div class="user"> <i class="fa-solid fa-user"></i></div>
         <h1>{{ username }}</h1>
-        <button @click="logOut">Log Out</button>
+        <button class="logout" @click="logOut">Log Out</button>
       </div>
       <h1>Your favorites:</h1>
       <section class="all-characters">

@@ -76,9 +76,27 @@ import Event from '../components/Event.vue';
     display: flex;
     justify-content: center;
     padding-top: 3%;
+    transition: all ease 600ms;
+    button{
+        width: 90px;
+        font-size: 18px;
+        padding: 5px;
+        background-color: #ce1e1e;
+        color: white;
+        border-radius: 0 15px 15px 0;
+        transition: all ease 600ms;
+    }
+    button:hover{
+        cursor: pointer;
+        background-color: #a10000;
+        transition: all ease 600ms;
+    }
     input{
         padding: 0.2%;
-        width: 30%;
+        width: 50%;
+        height: 45px;
+        border-radius: 15px 0 0 0;
+        font-size: 18px;
 
     }
 }
@@ -96,9 +114,12 @@ import Event from '../components/Event.vue';
         display: flex;
         justify-content: center;
         padding-top: 3%;
+        margin: 0 auto;
+
+        transition: all ease 600ms;
         input{
             padding: 0.2%;
-            width: 80%;
+            
     
         }
     }

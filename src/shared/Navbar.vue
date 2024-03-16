@@ -94,7 +94,7 @@ export default {
   border-radius: 0 0 0 20px;
   font-size: 16px;
   padding: 10px;
-  z-index: 2;
+  z-index: 4;
   transition: right 0.5s ease; /* Agregar transición de movimiento */
 }
 

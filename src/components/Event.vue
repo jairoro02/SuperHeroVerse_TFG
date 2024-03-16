@@ -115,8 +115,9 @@ import axios from 'axios';
     color: white;
     background-color:#C51B1B ;
     padding: 2%;
-    border-radius: 25px;
+    border-radius: 15px 0 15px 0;
     transition: all 0.5s;
+    box-shadow: #7a1111  8px 8px 8px;
     .can{
         font-size: 25px;
         transition: all 0.5s;
@@ -160,7 +161,6 @@ import axios from 'axios';
             color: white;
             background-color:#C51B1B ;
             padding: 2%;
-            border-radius: 25px;
             transition: all 0.5s;
             margin-bottom: 5%;
             .can{
@@ -194,7 +194,6 @@ import axios from 'axios';
             color: white;
             background-color:#C51B1B ;
             padding: 2%;
-            border-radius: 25px;
             transition: all 0.5s;
             margin-bottom: 5%;
             .can{

@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0;
     h1{
         padding-top: 2.5%;
         padding-bottom: 1.5%;
@@ -11,17 +12,44 @@
         
     }
    .video{
+    width: 100%;
     display: flex;
     justify-content: center;
-    
+    position: relative;
+
+    .title{
+        position: absolute;
+        top: 35%; /* Lo posiciona a la mitad de la altura del contenedor */
+        left: 50%; /* Lo posiciona a la mitad del ancho del contenedor */
+        transform: translate(-50%, -50%); /* Centra el texto en el centro del contenedor */
+        color: white; /* Color del texto */
+        font-size: 30px; /* Tamaño de fuente del texto */
+        text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+        z-index: 2;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: all 600ms;
+        p{
+            font-family: $fuentenombre;
+            transition: all 600ms;
+            font-size: 25px;
+        }
+    }
     video{
+        filter: contrast(60%);
         transition: all 600ms;
     }
 
     } 
     .info{
+        display: none;
         width: 90%;
-        display: flex;
         flex-direction: row;
         justify-content: space-between;
         padding-top: 4%;
@@ -37,12 +65,15 @@
             transition: all 600ms;
 
         }
+        .data.especial{
+            transition: all 600ms;
+        }
     }
 }
 
 @media(max-width:1275px){
     .video video {
-        width: 80%; 
+        width: 100%; 
         height: auto; 
         transition: all 600ms;
     }
@@ -55,20 +86,35 @@
         }
     }
 }
-@media(max-width:900px){
+@media(max-width:1050px){
     .fondito.index{
+        .video .title{
+            top: 45%;
+            padding: 0;
+            transition: all 600ms;
+            p{
+                transition: all 600ms;
+                display: none;
+            }
+        }
         h1{
-            font-size: 25px;
+            font-size: 45px;
             transition: all 600ms;
         }
         .info{
+            display: flex;
             flex-direction: column;
             align-items: center;
             transition: all 600ms;
             .data{
-                width: 90%;
+                width: 70%;
                 font-size: 15px;
                 margin-bottom: 4%;
+                transition: all 600ms;
+            }
+            .data.especial{
+                font-size: 20px;
+                display: flex;
                 transition: all 600ms;
             }
         }
@@ -77,14 +123,16 @@
 @media(max-width:735px){
     .fondito.index{
         h1{
-            font-size: 30px;
+            font-size: 25px;
             transition: all 600ms;
         }
         .info{
             .data{
-                font-size: 14px;
+                width: 85%;
+                font-size: 20px;
                 transition: all 600ms;
             }
+            
         }
     }
 }

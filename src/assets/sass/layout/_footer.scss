@@ -2,12 +2,18 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 80px;
+    height: 58px;
     background-color: #151515;
     justify-content: center;
     align-items: flex-end;
     nav{
         padding-bottom: 1.5%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        a{
+            transition: all 600ms;
+        }
     }
     .footer-text{
         color: #767676;
@@ -18,5 +24,24 @@
     }
     .footer-text:hover{
         color: #a7a7a7;
+    }
+}
+
+@media(max-width:587px){
+    .footer{
+
+        nav{
+
+            a{
+                margin-bottom: 5px;
+                transition: all 600ms;
+            }
+        }
+        .footer-text{
+
+        }
+        .footer-text:hover{
+
+        }
     }
 }
