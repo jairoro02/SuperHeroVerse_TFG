@@ -1,7 +1,7 @@
 <template>
     <main class="fondo">
         <form class="creador" @submit.prevent="submitEvent">
-            <input  type="text" v-model="eventname">
+            <input  type="text" v-model="eventname" @input="lookInput">
             <button type="submit">Create</button>
         </form>
         <p v-if="error" class="error-message">{{ error }}</p>
@@ -30,7 +30,10 @@ import Event from '../components/Event.vue';
         },
         methods:{
             submitEvent(){
-                if(this.eventname.length >= 5){
+                if(/^\s*$/.test(this.eventname)){
+                    this.error = 'You have to introduce some data'
+                }
+                if(!this.error){
                     const userStore = useUserStore();
                     const name = userStore.username;
                     const token = localStorage.getItem('token');
@@ -54,8 +57,17 @@ import Event from '../components/Event.vue';
                         console.error(error);
                     });
 
-                }else{
-                    this.error="It has to have at least 5 letters"
+                }
+            },
+            lookInput(){
+                if(/[!@#$%^&*(),.?":{}|<>]/.test(this.eventname)){
+                    this.error = 'The event name cannot contain special characters';
+                }
+                else if(this.eventname.trim().length <= 5 && this.eventname !== ""){
+                    this.error = 'The event need more than 5 letters'
+                }
+                else{
+                    this.error = ''
                 }
             },
             fetchEvents(){
