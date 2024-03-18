@@ -81,13 +81,13 @@ export default {
 }
 
 .menu-container {
+  display: none;
   position: absolute;
   top: 100px; /* Posición desde arriba */
   right: -205px; /* Posición fuera de la pantalla hacia la derecha */
   background-color: #C51B1B;
   width: 200px;
   height: 200px;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -99,6 +99,7 @@ export default {
 }
 
 .menu-container.active {
+  display: flex;
   right: 0; /* Mover el menú a la posición original cuando está activo */
 }
 </style>
