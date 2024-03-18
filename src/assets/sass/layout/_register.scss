@@ -5,9 +5,11 @@
     justify-content: center;
     width: 80%;
     transition: all 600ms;
+
     h1{
         font-size: 32px;
         margin: 0 auto;
+        font-family: $fuenteprincipal;
     }
     .form-register{
         display: flex;
@@ -16,7 +18,7 @@
         width: 60%; 
         margin: 0 auto;
         transition: all 600ms;
-
+        font-family: $fuentenombre;
         .form-option{
             display: flex;
             flex-direction: column;
